@@ -6,6 +6,9 @@ enum class EventType {
     LOCK_REQUEST,
     LOCK_ACQUIRE,
     LOCK_RELEASE,
+    READ,
+    WRITE,
+    INCREMENT
 };
 
 struct Event {
