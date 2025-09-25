@@ -7,6 +7,7 @@ enum class EventType {
     LOCK_ACQUIRE,
     LOCK_RELEASE,
     READ,
+    LOCK_BLOCK,
     WRITE,
     INCREMENT
 };
