@@ -8,11 +8,11 @@
 // Shared counter (not atomic → race condition will appear)
 int counter = 0;
 Logger logger("log.txt");
-
+InstrumentedMutex myMutex(&logger, 1);
 // Worker function
 void worker(int id) {
     for (int i = 0; i < 100; i++) {  
-        InstrumentedMutex(&logger, id);
+        InstrumentedLockGuard guard(myMutex, id);
          // small loop so log is readable
         counter++;  
                       // store
