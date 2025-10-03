@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "text_encoding": "cpp",
+        "thread": "cpp"
     }
 }

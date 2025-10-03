@@ -20,6 +20,7 @@ add_executable(race_test
 
 add_executable(crash_test
     src/crash_test.cpp
+    src/crash_log.cpp
 )
 
 add_executable(race_replay_test

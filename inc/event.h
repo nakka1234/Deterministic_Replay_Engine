@@ -8,14 +8,41 @@
 
 // ------------------ Event Types ------------------
 enum class EventType {
-    LOCK_REQUEST,
-    LOCK_ACQUIRE,
-    LOCK_RELEASE,
-    READ,
-    LOCK_BLOCK,
-    WRITE,
-    INCREMENT
+    // Locking events
+    LOCK_REQUEST,   // thread requested a lock
+    LOCK_ACQUIRE,   // thread acquired lock
+    LOCK_RELEASE,   // thread released lock
+    LOCK_BLOCK,     // thread was blocked waiting for a lock
+
+    // Memory access events
+    READ,           // read a value
+    WRITE,          // write a value
+    INCREMENT,      // atomic-like increment
+    DECREMENT,      // decrement
+    DEREF,          // dereferencing a pointer
+    FREE,           // freeing memory
+    ALLOC,          // allocation (malloc/new)
+
+    // Thread lifecycle events
+    THREAD_START,   // thread started
+    THREAD_END,     // thread ended
+    YIELD,          // thread voluntarily yields
+    SLEEP,          // thread sleeps (usleep, nanosleep etc.)
+
+    // Synchronization events
+    WAIT,           // wait on condition_variable
+    NOTIFY_ONE,     // notify_one called
+    NOTIFY_ALL,     // notify_all called
+    BARRIER_WAIT,   // barrier synchronization
+
+    // Errors / abnormal
+    NULL_ACCESS,    // tried to access null
+    USE_AFTER_FREE, // accessed memory after free
+    OUT_OF_BOUNDS,  // array/vector out-of-bounds
+    DEADLOCK,       // potential deadlock detected
+    RACE_COND       // race condition detected
 };
+
 
 // ------------------ Event Struct ------------------
 struct Event {
