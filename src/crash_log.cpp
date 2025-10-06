@@ -10,13 +10,14 @@ CrashLogger::~CrashLogger() {
 }
 
 void CrashLogger::log(int thread_id, EventType type, long value) {
+    
     std::lock_guard<std::mutex> lock(file_mtx);
+     uint64_t seq = seq_counter.fetch_add(1);
 
     std::ostringstream oss;
-    oss << "T" << thread_id
-        << " EVENT=" << static_cast<int>(type)
-        << " VALUE=" << value
-        << "\n";
+    oss << seq << " T" << thread_id
+        << " " << static_cast<int>(type)
+        << " M" << value << "\n";
 
     logfile << oss.str();
     logfile.flush();   // ✅ flush every time — safer for crashes
