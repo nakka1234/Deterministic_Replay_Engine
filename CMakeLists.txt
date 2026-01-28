@@ -12,3 +12,21 @@ add_executable(testprog
     src/test_program.cpp
     src/logger.cpp
 )
+
+add_executable(race_test
+    src/race_test.cpp
+    src/logger.cpp
+)
+
+add_executable(crash_test
+    src/crash_test.cpp
+    src/crash_log.cpp
+)
+
+add_executable(race_replay_test
+    src/race_replay_test.cpp
+)
+
+add_executable(crash_replay_test
+    src/crash_replay_test.cpp
+)
